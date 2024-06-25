@@ -1,0 +1,42 @@
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: 'Install PHP'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+          tools: 'composer:v2.4'
+      -
+        name: 'Show Composer version'
+        run: 'composer --version'
+      -
+        name: 'Show the Composer configuration'
+        run: 'composer config --global --list'
+      -
+        name: 'Cache dependencies installed with composer'
+        uses: actions/cache@v3
+        with:
+          key: 'php8.2'
+          path: ~/.cache/composer
+          restore-keys: "php8.2-composer-\n"
+      -
+        name: 'Install Composer dependencies'
+        run: "composer install --no-progress\n"
+      -
+        name: 'Run command'
+        run: "composer ci\n"

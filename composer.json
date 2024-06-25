@@ -1,0 +1,68 @@
+{
+  "name": "digital-marketing-framework/composer-repository",
+  "homepage": "https://www.mediatis.de",
+  "repositories": [
+    {
+      "name": "digital-marketing-framework/one-trust",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/one-trust.git"
+    },
+    {
+      "name": "digital-marketing-framework/typo3-one-trust",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/typo3-one-trust.git"
+    },
+    {
+      "name": "digital-marketing-framework/collector-pardot",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/collector-pardot.git"
+    },
+    {
+      "name": "digital-marketing-framework/typo3-collector-pardot",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/typo3-collector-pardot.git"
+    },
+    {
+      "name": "digital-marketing-framework/distributor-salesforce-case",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/distributor-salesforce-case"
+    },
+    {
+      "name": "digital-marketing-framework/typo3-distributor-salesforce-case",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/typo3-distributor-salesforce-case"
+    },
+    {
+      "name": "digital-marketing-framework/distributor-pdf",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/distributor-pdf"
+    },
+    {
+      "name": "digital-marketing-framework/typo3-distributor-pdf",
+      "type": "vcs",
+      "url": "https://github.com/digital-marketing-framework/typo3-distributor-pdf"
+    }
+  ],
+  "require-all": true,
+  "require": {
+    "composer/satis": "dev-main"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/satis": true
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@link-extension"
+    ],
+    "ci": [
+      "@ci:satis:build"
+    ],
+    "ci:satis:build": "php vendor/bin/satis build satis.json public/"
+  },
+  "scripts-descriptions": {
+    "ci": "Runs all ci scripts in the composer.json",
+    "ci:satis:build": "Runs satis build process."
+  }
+}
