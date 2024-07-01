@@ -39,5 +39,5 @@ jobs:
         run: |
           php vendor/bin/satis build satis.json public/
           git add .
-          git commit -m "Build satis library"
+          git commit -m "[no ci] Build satis library"
           git push -u origin main
