@@ -1,0 +1,610 @@
+{
+    "packages": {
+        "digital-marketing-framework/collector-pardot": [
+            {
+                "name": "digital-marketing-framework/collector-pardot",
+                "version": "1.0.0",
+                "version_normalized": "1.0.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:digital-marketing-framework/collector-pardot.git",
+                    "reference": "c23c740e6f0bd2c6c61dcc78fd0c7155e57544fa"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/digital-marketing-framework/collector-pardot/zipball/c23c740e6f0bd2c6c61dcc78fd0c7155e57544fa",
+                    "reference": "c23c740e6f0bd2c6c61dcc78fd0c7155e57544fa",
+                    "shasum": ""
+                },
+                "require": {
+                    "digital-marketing-framework/collector-core": "^1.0",
+                    "guzzlehttp/guzzle": "^7.8",
+                    "php": "^8.1"
+                },
+                "require-dev": {
+                    "mediatis/coding-standards": "^1.0"
+                },
+                "time": "2023-10-08T08:55:59+00:00",
+                "type": "library",
+                "autoload": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Pardot\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Core\\Tests\\": "vendor/digital-marketing-framework/collector-core/tests/",
+                        "DigitalMarketingFramework\\Collector\\Pardot\\Tests\\": "tests/",
+                        "DigitalMarketingFramework\\Core\\Tests\\": "vendor/digital-marketing-framework/core/tests/"
+                    }
+                },
+                "scripts": {
+                    "ci": [
+                        "@ci:static",
+                        "@ci:dynamic"
+                    ],
+                    "ci:composer": [
+                        "@ci:composer:static"
+                    ],
+                    "ci:composer:normalize": [
+                        "@composer normalize --no-check-lock --dry-run"
+                    ],
+                    "ci:composer:psr-verify": [
+                        "@composer dumpautoload --optimize --strict-psr"
+                    ],
+                    "ci:composer:static": [
+                        "@ci:composer:validate",
+                        "@ci:composer:psr-verify",
+                        "@ci:composer:normalize"
+                    ],
+                    "ci:composer:validate": [
+                        "@composer validate --strict"
+                    ],
+                    "ci:dynamic": [
+                        "@ci:tests"
+                    ],
+                    "ci:php": [
+                        "@ci:php:static",
+                        "@ci:php:dynamic"
+                    ],
+                    "ci:php:cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff src tests"
+                    ],
+                    "ci:php:dynamic": [
+                        "@ci:php:tests"
+                    ],
+                    "ci:php:lint": [
+                        "find .*.php *.php src tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l"
+                    ],
+                    "ci:php:rector": [
+                        "./vendor/bin/rector --dry-run"
+                    ],
+                    "ci:php:stan": [
+                        "php -d memory_limit=228M ./vendor/bin/phpstan --no-progress --no-interaction analyse"
+                    ],
+                    "ci:php:static": [
+                        "@ci:php:rector",
+                        "@ci:php:cs-fixer",
+                        "@ci:php:lint",
+                        "@ci:php:stan"
+                    ],
+                    "ci:php:tests": [
+                        "@ci:php:tests:unit",
+                        "@ci:php:tests:integration"
+                    ],
+                    "ci:php:tests:integration": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Integration/"
+                    ],
+                    "ci:php:tests:unit": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Unit/"
+                    ],
+                    "ci:static": [
+                        "@ci:composer:static",
+                        "@ci:php:static"
+                    ],
+                    "ci:tests": [
+                        "@ci:php:tests"
+                    ],
+                    "fix": [
+                        "@fix:composer",
+                        "@fix:php"
+                    ],
+                    "fix:composer": [
+                        "@fix:composer:normalize"
+                    ],
+                    "fix:composer:normalize": [
+                        "@composer normalize --no-check-lock"
+                    ],
+                    "fix:php": [
+                        "@fix:php:rector",
+                        "@fix:php:cs"
+                    ],
+                    "fix:php:cs": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php src tests"
+                    ],
+                    "fix:php:rector": [
+                        "./vendor/bin/rector"
+                    ]
+                },
+                "license": [
+                    "GPL-2.0-or-later"
+                ],
+                "authors": [
+                    {
+                        "name": "Mediatis AG",
+                        "email": "info@mediatis.de",
+                        "homepage": "https://www.mediatis.de",
+                        "role": "Developer"
+                    }
+                ],
+                "description": "Digital Marketing Framework - Collector - Pardot",
+                "homepage": "https://www.mediatis.de",
+                "keywords": [
+                    "collector",
+                    "data",
+                    "framework",
+                    "marketing",
+                    "pardot",
+                    "relay"
+                ],
+                "support": {
+                    "source": "https://github.com/digital-marketing-framework/collector-pardot/tree/1.0.0",
+                    "issues": "https://github.com/digital-marketing-framework/collector-pardot/issues"
+                }
+            },
+            {
+                "name": "digital-marketing-framework/collector-pardot",
+                "version": "1.0.1",
+                "version_normalized": "1.0.1.0",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:digital-marketing-framework/collector-pardot.git",
+                    "reference": "8f382b6f8f0376cbbb31c5eea446e77449fe86a5"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/digital-marketing-framework/collector-pardot/zipball/8f382b6f8f0376cbbb31c5eea446e77449fe86a5",
+                    "reference": "8f382b6f8f0376cbbb31c5eea446e77449fe86a5",
+                    "shasum": ""
+                },
+                "require": {
+                    "digital-marketing-framework/collector-core": "^1.0",
+                    "guzzlehttp/guzzle": "^7.8",
+                    "php": "^8.1"
+                },
+                "require-dev": {
+                    "mediatis/coding-standards": "^1.0"
+                },
+                "time": "2023-10-13T16:09:45+00:00",
+                "type": "library",
+                "autoload": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Pardot\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Core\\Tests\\": "vendor/digital-marketing-framework/collector-core/tests/",
+                        "DigitalMarketingFramework\\Collector\\Pardot\\Tests\\": "tests/",
+                        "DigitalMarketingFramework\\Core\\Tests\\": "vendor/digital-marketing-framework/core/tests/"
+                    }
+                },
+                "scripts": {
+                    "ci": [
+                        "@ci:static",
+                        "@ci:dynamic"
+                    ],
+                    "ci:composer": [
+                        "@ci:composer:static"
+                    ],
+                    "ci:composer:normalize": [
+                        "@composer normalize --no-check-lock --dry-run"
+                    ],
+                    "ci:composer:psr-verify": [
+                        "@composer dumpautoload --optimize --strict-psr"
+                    ],
+                    "ci:composer:static": [
+                        "@ci:composer:validate",
+                        "@ci:composer:psr-verify",
+                        "@ci:composer:normalize"
+                    ],
+                    "ci:composer:validate": [
+                        "@composer validate --strict"
+                    ],
+                    "ci:dynamic": [
+                        "@ci:tests"
+                    ],
+                    "ci:php": [
+                        "@ci:php:static",
+                        "@ci:php:dynamic"
+                    ],
+                    "ci:php:cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff src tests"
+                    ],
+                    "ci:php:dynamic": [
+                        "@ci:php:tests"
+                    ],
+                    "ci:php:lint": [
+                        "find .*.php *.php src tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l"
+                    ],
+                    "ci:php:rector": [
+                        "./vendor/bin/rector --dry-run"
+                    ],
+                    "ci:php:stan": [
+                        "php -d memory_limit=228M ./vendor/bin/phpstan --no-progress --no-interaction analyse"
+                    ],
+                    "ci:php:static": [
+                        "@ci:php:rector",
+                        "@ci:php:cs-fixer",
+                        "@ci:php:lint",
+                        "@ci:php:stan"
+                    ],
+                    "ci:php:tests": [
+                        "@ci:php:tests:unit",
+                        "@ci:php:tests:integration"
+                    ],
+                    "ci:php:tests:integration": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Integration/"
+                    ],
+                    "ci:php:tests:unit": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Unit/"
+                    ],
+                    "ci:static": [
+                        "@ci:composer:static",
+                        "@ci:php:static"
+                    ],
+                    "ci:tests": [
+                        "@ci:php:tests"
+                    ],
+                    "fix": [
+                        "@fix:composer",
+                        "@fix:php"
+                    ],
+                    "fix:composer": [
+                        "@fix:composer:normalize"
+                    ],
+                    "fix:composer:normalize": [
+                        "@composer normalize --no-check-lock"
+                    ],
+                    "fix:php": [
+                        "@fix:php:rector",
+                        "@fix:php:cs"
+                    ],
+                    "fix:php:cs": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php src tests"
+                    ],
+                    "fix:php:rector": [
+                        "./vendor/bin/rector"
+                    ]
+                },
+                "license": [
+                    "GPL-2.0-or-later"
+                ],
+                "authors": [
+                    {
+                        "name": "Mediatis AG",
+                        "email": "info@mediatis.de",
+                        "homepage": "https://www.mediatis.de",
+                        "role": "Developer"
+                    }
+                ],
+                "description": "Digital Marketing Framework - Collector - Pardot",
+                "homepage": "https://www.mediatis.de",
+                "keywords": [
+                    "collector",
+                    "data",
+                    "framework",
+                    "marketing",
+                    "pardot",
+                    "relay"
+                ],
+                "support": {
+                    "source": "https://github.com/digital-marketing-framework/collector-pardot/tree/1.0.1",
+                    "issues": "https://github.com/digital-marketing-framework/collector-pardot/issues"
+                }
+            },
+            {
+                "name": "digital-marketing-framework/collector-pardot",
+                "version": "2.0.0",
+                "version_normalized": "2.0.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:digital-marketing-framework/collector-pardot.git",
+                    "reference": "3ed3687e309db88190da549d7914cc0c8e0fcab4"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/digital-marketing-framework/collector-pardot/zipball/3ed3687e309db88190da549d7914cc0c8e0fcab4",
+                    "reference": "3ed3687e309db88190da549d7914cc0c8e0fcab4",
+                    "shasum": ""
+                },
+                "require": {
+                    "digital-marketing-framework/collector-core": "^2.0",
+                    "guzzlehttp/guzzle": "^7.8",
+                    "php": "^8.1"
+                },
+                "require-dev": {
+                    "mediatis/coding-standards": "^1.0"
+                },
+                "time": "2024-05-05T22:00:56+00:00",
+                "type": "library",
+                "autoload": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Pardot\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Core\\Tests\\": "vendor/digital-marketing-framework/collector-core/tests/",
+                        "DigitalMarketingFramework\\Collector\\Pardot\\Tests\\": "tests/",
+                        "DigitalMarketingFramework\\Core\\Tests\\": "vendor/digital-marketing-framework/core/tests/"
+                    }
+                },
+                "scripts": {
+                    "ci": [
+                        "@ci:static",
+                        "@ci:dynamic"
+                    ],
+                    "ci:composer": [
+                        "@ci:composer:static"
+                    ],
+                    "ci:composer:normalize": [
+                        "@composer normalize --no-check-lock --dry-run"
+                    ],
+                    "ci:composer:psr-verify": [
+                        "@composer dumpautoload --optimize --strict-psr"
+                    ],
+                    "ci:composer:static": [
+                        "@ci:composer:validate",
+                        "@ci:composer:psr-verify",
+                        "@ci:composer:normalize"
+                    ],
+                    "ci:composer:validate": [
+                        "@composer validate --strict"
+                    ],
+                    "ci:dynamic": [
+                        "@ci:tests"
+                    ],
+                    "ci:php": [
+                        "@ci:php:static",
+                        "@ci:php:dynamic"
+                    ],
+                    "ci:php:cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff src tests"
+                    ],
+                    "ci:php:dynamic": [
+                        "@ci:php:tests"
+                    ],
+                    "ci:php:lint": [
+                        "find .*.php *.php src tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l"
+                    ],
+                    "ci:php:rector": [
+                        "./vendor/bin/rector --dry-run"
+                    ],
+                    "ci:php:stan": [
+                        "php -d memory_limit=228M ./vendor/bin/phpstan --no-progress --no-interaction analyse"
+                    ],
+                    "ci:php:static": [
+                        "@ci:php:rector",
+                        "@ci:php:cs-fixer",
+                        "@ci:php:lint",
+                        "@ci:php:stan"
+                    ],
+                    "ci:php:tests": [
+                        "@ci:php:tests:unit",
+                        "@ci:php:tests:integration"
+                    ],
+                    "ci:php:tests:integration": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Integration/"
+                    ],
+                    "ci:php:tests:unit": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Unit/"
+                    ],
+                    "ci:static": [
+                        "@ci:composer:static",
+                        "@ci:php:static"
+                    ],
+                    "ci:tests": [
+                        "@ci:php:tests"
+                    ],
+                    "fix": [
+                        "@fix:composer",
+                        "@fix:php"
+                    ],
+                    "fix:composer": [
+                        "@fix:composer:normalize"
+                    ],
+                    "fix:composer:normalize": [
+                        "@composer normalize --no-check-lock"
+                    ],
+                    "fix:php": [
+                        "@fix:php:rector",
+                        "@fix:php:cs"
+                    ],
+                    "fix:php:cs": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php src tests"
+                    ],
+                    "fix:php:rector": [
+                        "./vendor/bin/rector"
+                    ]
+                },
+                "license": [
+                    "GPL-2.0-or-later"
+                ],
+                "authors": [
+                    {
+                        "name": "Mediatis AG",
+                        "email": "info@mediatis.de",
+                        "homepage": "https://www.mediatis.de",
+                        "role": "Developer"
+                    }
+                ],
+                "description": "Digital Marketing Framework - Collector - Pardot",
+                "homepage": "https://www.mediatis.de",
+                "keywords": [
+                    "collector",
+                    "data",
+                    "framework",
+                    "marketing",
+                    "pardot",
+                    "relay"
+                ],
+                "support": {
+                    "source": "https://github.com/digital-marketing-framework/collector-pardot/tree/2.0.0",
+                    "issues": "https://github.com/digital-marketing-framework/collector-pardot/issues"
+                }
+            },
+            {
+                "name": "digital-marketing-framework/collector-pardot",
+                "version": "2.1.0",
+                "version_normalized": "2.1.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:digital-marketing-framework/collector-pardot.git",
+                    "reference": "56a1bd58a536eca1f46797c2bdea841f627b7144"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/digital-marketing-framework/collector-pardot/zipball/56a1bd58a536eca1f46797c2bdea841f627b7144",
+                    "reference": "56a1bd58a536eca1f46797c2bdea841f627b7144",
+                    "shasum": ""
+                },
+                "require": {
+                    "digital-marketing-framework/collector-core": "^2.1",
+                    "guzzlehttp/guzzle": "^7.8",
+                    "php": "^8.1"
+                },
+                "require-dev": {
+                    "mediatis/coding-standards": "^1.0"
+                },
+                "time": "2024-06-02T22:06:00+00:00",
+                "type": "library",
+                "autoload": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Pardot\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Collector\\Core\\Tests\\": "vendor/digital-marketing-framework/collector-core/tests/",
+                        "DigitalMarketingFramework\\Collector\\Pardot\\Tests\\": "tests/",
+                        "DigitalMarketingFramework\\Core\\Tests\\": "vendor/digital-marketing-framework/core/tests/"
+                    }
+                },
+                "scripts": {
+                    "ci": [
+                        "@ci:static",
+                        "@ci:dynamic"
+                    ],
+                    "ci:composer": [
+                        "@ci:composer:static"
+                    ],
+                    "ci:composer:normalize": [
+                        "@composer normalize --no-check-lock --dry-run"
+                    ],
+                    "ci:composer:psr-verify": [
+                        "@composer dumpautoload --optimize --strict-psr"
+                    ],
+                    "ci:composer:static": [
+                        "@ci:composer:validate",
+                        "@ci:composer:psr-verify",
+                        "@ci:composer:normalize"
+                    ],
+                    "ci:composer:validate": [
+                        "@composer validate --strict"
+                    ],
+                    "ci:dynamic": [
+                        "@ci:tests"
+                    ],
+                    "ci:php": [
+                        "@ci:php:static",
+                        "@ci:php:dynamic"
+                    ],
+                    "ci:php:cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff src tests"
+                    ],
+                    "ci:php:dynamic": [
+                        "@ci:php:tests"
+                    ],
+                    "ci:php:lint": [
+                        "find .*.php *.php src tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l"
+                    ],
+                    "ci:php:rector": [
+                        "./vendor/bin/rector --dry-run"
+                    ],
+                    "ci:php:stan": [
+                        "php -d memory_limit=228M ./vendor/bin/phpstan --no-progress --no-interaction analyse"
+                    ],
+                    "ci:php:static": [
+                        "@ci:php:rector",
+                        "@ci:php:cs-fixer",
+                        "@ci:php:lint",
+                        "@ci:php:stan"
+                    ],
+                    "ci:php:tests": [
+                        "@ci:php:tests:unit",
+                        "@ci:php:tests:integration"
+                    ],
+                    "ci:php:tests:integration": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Integration/"
+                    ],
+                    "ci:php:tests:unit": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Unit/"
+                    ],
+                    "ci:static": [
+                        "@ci:composer:static",
+                        "@ci:php:static"
+                    ],
+                    "ci:tests": [
+                        "@ci:php:tests"
+                    ],
+                    "fix": [
+                        "@fix:composer",
+                        "@fix:php"
+                    ],
+                    "fix:composer": [
+                        "@fix:composer:normalize"
+                    ],
+                    "fix:composer:normalize": [
+                        "@composer normalize --no-check-lock"
+                    ],
+                    "fix:php": [
+                        "@fix:php:rector",
+                        "@fix:php:cs"
+                    ],
+                    "fix:php:cs": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php src tests"
+                    ],
+                    "fix:php:rector": [
+                        "./vendor/bin/rector"
+                    ]
+                },
+                "license": [
+                    "GPL-2.0-or-later"
+                ],
+                "authors": [
+                    {
+                        "name": "Mediatis AG",
+                        "email": "info@mediatis.de",
+                        "homepage": "https://www.mediatis.de",
+                        "role": "Developer"
+                    }
+                ],
+                "description": "Digital Marketing Framework - Collector - Pardot",
+                "homepage": "https://www.mediatis.de",
+                "keywords": [
+                    "collector",
+                    "data",
+                    "framework",
+                    "marketing",
+                    "pardot",
+                    "relay"
+                ],
+                "support": {
+                    "source": "https://github.com/digital-marketing-framework/collector-pardot/tree/2.1.0",
+                    "issues": "https://github.com/digital-marketing-framework/collector-pardot/issues"
+                }
+            }
+        ]
+    }
+}

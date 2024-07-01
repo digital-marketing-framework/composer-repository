@@ -1,0 +1,157 @@
+{
+    "packages": {
+        "digital-marketing-framework/one-trust": [
+            {
+                "name": "digital-marketing-framework/one-trust",
+                "version": "dev-main",
+                "version_normalized": "dev-main",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:digital-marketing-framework/one-trust.git",
+                    "reference": "600046de38a8564a25805529212b888e787f0929"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/digital-marketing-framework/one-trust/zipball/600046de38a8564a25805529212b888e787f0929",
+                    "reference": "600046de38a8564a25805529212b888e787f0929",
+                    "shasum": ""
+                },
+                "require": {
+                    "digital-marketing-framework/core": "^2.2",
+                    "php": "^8.1"
+                },
+                "require-dev": {
+                    "mediatis/coding-standards": "^1.0"
+                },
+                "time": "2024-06-08T10:10:55+00:00",
+                "default-branch": true,
+                "type": "library",
+                "autoload": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\OneTrust\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Core\\Tests\\": "vendor/digital-marketing-framework/core/tests/",
+                        "DigitalMarketingFramework\\OneTrust\\Tests\\": "tests/"
+                    }
+                },
+                "scripts": {
+                    "ci": [
+                        "@ci:static",
+                        "@ci:dynamic"
+                    ],
+                    "ci:composer": [
+                        "@ci:composer:static"
+                    ],
+                    "ci:composer:normalize": [
+                        "@composer normalize --no-check-lock --dry-run"
+                    ],
+                    "ci:composer:psr-verify": [
+                        "@composer dumpautoload --optimize --strict-psr"
+                    ],
+                    "ci:composer:static": [
+                        "@ci:composer:validate",
+                        "@ci:composer:psr-verify",
+                        "@ci:composer:normalize"
+                    ],
+                    "ci:composer:validate": [
+                        "@composer validate --strict"
+                    ],
+                    "ci:dynamic": [
+                        "@ci:tests"
+                    ],
+                    "ci:php": [
+                        "@ci:php:static",
+                        "@ci:php:dynamic"
+                    ],
+                    "ci:php:cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff src tests"
+                    ],
+                    "ci:php:dynamic": [
+                        "@ci:php:tests"
+                    ],
+                    "ci:php:lint": [
+                        "find .*.php *.php src tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l"
+                    ],
+                    "ci:php:rector": [
+                        "./vendor/bin/rector --dry-run"
+                    ],
+                    "ci:php:stan": [
+                        "php -d memory_limit=228M ./vendor/bin/phpstan --no-progress --no-interaction analyse"
+                    ],
+                    "ci:php:static": [
+                        "@ci:php:rector",
+                        "@ci:php:cs-fixer",
+                        "@ci:php:lint",
+                        "@ci:php:stan"
+                    ],
+                    "ci:php:tests": [
+                        "@ci:php:tests:unit",
+                        "@ci:php:tests:integration"
+                    ],
+                    "ci:php:tests:integration": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Integration/"
+                    ],
+                    "ci:php:tests:unit": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Unit/"
+                    ],
+                    "ci:static": [
+                        "@ci:composer:static",
+                        "@ci:php:static"
+                    ],
+                    "ci:tests": [
+                        "@ci:php:tests"
+                    ],
+                    "fix": [
+                        "@fix:composer",
+                        "@fix:php"
+                    ],
+                    "fix:composer": [
+                        "@fix:composer:normalize"
+                    ],
+                    "fix:composer:normalize": [
+                        "@composer normalize --no-check-lock"
+                    ],
+                    "fix:php": [
+                        "@fix:php:rector",
+                        "@fix:php:cs"
+                    ],
+                    "fix:php:cs": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php src tests"
+                    ],
+                    "fix:php:rector": [
+                        "./vendor/bin/rector"
+                    ]
+                },
+                "license": [
+                    "GPL-2.0-or-later"
+                ],
+                "authors": [
+                    {
+                        "name": "Mediatis AG",
+                        "email": "info@mediatis.de",
+                        "homepage": "https://www.mediatis.de",
+                        "role": "Developer"
+                    }
+                ],
+                "description": "Digital Marketing Framework - Data Privacy - OneTrust",
+                "homepage": "https://www.mediatis.de",
+                "keywords": [
+                    "data",
+                    "data privacy",
+                    "framework",
+                    "marketing",
+                    "one trust",
+                    "onetrust",
+                    "relay"
+                ],
+                "support": {
+                    "source": "https://github.com/digital-marketing-framework/one-trust/tree/1.0.0",
+                    "issues": "https://github.com/digital-marketing-framework/one-trust/issues"
+                }
+            }
+        ]
+    }
+}

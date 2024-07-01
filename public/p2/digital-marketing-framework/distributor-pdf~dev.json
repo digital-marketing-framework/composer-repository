@@ -1,0 +1,159 @@
+{
+    "packages": {
+        "digital-marketing-framework/distributor-pdf": [
+            {
+                "name": "digital-marketing-framework/distributor-pdf",
+                "version": "dev-main",
+                "version_normalized": "dev-main",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/digital-marketing-framework/distributor-pdf.git",
+                    "reference": "006bf368a00069b5b92f836909c276454e7077bf"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/digital-marketing-framework/distributor-pdf/zipball/006bf368a00069b5b92f836909c276454e7077bf",
+                    "reference": "006bf368a00069b5b92f836909c276454e7077bf",
+                    "shasum": ""
+                },
+                "require": {
+                    "digital-marketing-framework/distributor-core": "^2.1",
+                    "php": "^8.1",
+                    "tmw/fpdm": "^2.9"
+                },
+                "require-dev": {
+                    "mediatis/coding-standards": "^1.0"
+                },
+                "time": "2024-06-03T07:51:25+00:00",
+                "default-branch": true,
+                "type": "library",
+                "autoload": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Distributor\\Pdf\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "DigitalMarketingFramework\\Core\\Tests\\": "vendor/digital-marketing-framework/core/tests/",
+                        "DigitalMarketingFramework\\Distributor\\Core\\Tests\\": "vendor/digital-marketing-framework/distributor-core/tests/",
+                        "DigitalMarketingFramework\\Distributor\\Pdf\\Tests\\": "tests/"
+                    }
+                },
+                "scripts": {
+                    "ci": [
+                        "@ci:static",
+                        "@ci:dynamic"
+                    ],
+                    "ci:composer": [
+                        "@ci:composer:static"
+                    ],
+                    "ci:composer:normalize": [
+                        "@composer normalize --no-check-lock --dry-run"
+                    ],
+                    "ci:composer:psr-verify": [
+                        "@composer dumpautoload --optimize"
+                    ],
+                    "ci:composer:static": [
+                        "@ci:composer:validate",
+                        "@ci:composer:psr-verify",
+                        "@ci:composer:normalize"
+                    ],
+                    "ci:composer:validate": [
+                        "@composer validate --strict"
+                    ],
+                    "ci:dynamic": [
+                        "@ci:tests"
+                    ],
+                    "ci:php": [
+                        "@ci:php:static",
+                        "@ci:php:dynamic"
+                    ],
+                    "ci:php:cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --using-cache no --diff src tests"
+                    ],
+                    "ci:php:dynamic": [
+                        "@ci:php:tests"
+                    ],
+                    "ci:php:lint": [
+                        "find .*.php *.php src tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l"
+                    ],
+                    "ci:php:rector": [
+                        "./vendor/bin/rector --dry-run"
+                    ],
+                    "ci:php:stan": [
+                        "php -d memory_limit=228M ./vendor/bin/phpstan --no-progress --no-interaction analyse"
+                    ],
+                    "ci:php:static": [
+                        "@ci:php:rector",
+                        "@ci:php:cs-fixer",
+                        "@ci:php:lint",
+                        "@ci:php:stan"
+                    ],
+                    "ci:php:tests": [
+                        "@ci:php:tests:unit",
+                        "@ci:php:tests:integration"
+                    ],
+                    "ci:php:tests:integration": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Integration/"
+                    ],
+                    "ci:php:tests:unit": [
+                        "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox --colors=always tests/Unit/"
+                    ],
+                    "ci:static": [
+                        "@ci:composer:static",
+                        "@ci:php:static"
+                    ],
+                    "ci:tests": [
+                        "@ci:php:tests"
+                    ],
+                    "fix": [
+                        "@fix:composer",
+                        "@fix:php"
+                    ],
+                    "fix:composer": [
+                        "@fix:composer:normalize"
+                    ],
+                    "fix:composer:normalize": [
+                        "@composer normalize --no-check-lock"
+                    ],
+                    "fix:php": [
+                        "@fix:php:rector",
+                        "@fix:php:cs"
+                    ],
+                    "fix:php:cs": [
+                        "./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.php src tests"
+                    ],
+                    "fix:php:rector": [
+                        "./vendor/bin/rector"
+                    ]
+                },
+                "license": [
+                    "GPL-2.0-or-later"
+                ],
+                "authors": [
+                    {
+                        "name": "Mediatis AG",
+                        "email": "info@mediatis.de",
+                        "homepage": "https://www.mediatis.de",
+                        "role": "Developer"
+                    }
+                ],
+                "description": "Data Provider for PDFs with fillable form fields.",
+                "homepage": "https://www.mediatis.de",
+                "keywords": [
+                    "data",
+                    "form",
+                    "formhandler",
+                    "framework",
+                    "pdf",
+                    "relay",
+                    "submission"
+                ],
+                "support": {
+                    "source": "https://github.com/digital-marketing-framework/distributor-pdf/tree/2.1.0",
+                    "issues": "https://github.com/digital-marketing-framework/distributor-pdf/issues"
+                }
+            }
+        ]
+    }
+}
