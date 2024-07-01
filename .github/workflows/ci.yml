@@ -36,4 +36,8 @@ jobs:
         run: "composer install --no-progress\n"
       -
         name: 'Run command'
-        run: "php vendor/bin/satis build satis.json public/"
+        run: |
+          php vendor/bin/satis build satis.json public/
+          git add .
+          git commit -m "Build satis library"
+          git push -u origin main
