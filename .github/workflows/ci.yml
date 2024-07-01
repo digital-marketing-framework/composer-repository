@@ -29,18 +29,11 @@ jobs:
           php-version: 8.2
           coverage: none
           tools: 'composer:v2.4'
-      -
-        name: 'Cache dependencies installed with composer'
-        uses: actions/cache@v3
-        with:
-          key: 'php8.2'
-          path: ~/.cache/composer
-          restore-keys: "php8.2-composer-\n"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
       -
         name: 'Install Composer dependencies'
         run: "composer install --no-progress\n"
       -
         name: 'Run command'
         run: "php vendor/bin/satis build satis.json public/"
-        env:
-          COMPOSER_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
