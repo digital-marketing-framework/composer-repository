@@ -32,6 +32,7 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
+          clean: false
           token: ${{ secrets.SECRET_GITHUB_TOKEN }}
       - name: 'commit changes'
         run: |
