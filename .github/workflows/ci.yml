@@ -35,10 +35,9 @@ jobs:
           token: ${{ secrets.SECRET_GITHUB_TOKEN }}
       - name: 'commit changes'
         run: |
-            #            git config user.name "${{ secrets.SECRET_REPO_USER }}"
-            #            git config user.email "${{ secrets.SECRET_REPO_USER }}@users.noreply.github.com"
-            ls -la
+            git config user.name "${{ secrets.SECRET_REPO_USER }}"
+            git config user.email "${{ secrets.SECRET_REPO_USER }}@users.noreply.github.com"
             git add .
             git commit -m "[no ci] Build satis library"
-            git push
-            # git diff-index --quiet HEAD || git commit -m "[no ci] Build satis library" && git push
+            # git push
+            git diff-index --quiet HEAD ||  git push
