@@ -37,5 +37,8 @@ jobs:
         run: |
             #            git config user.name "${{ secrets.SECRET_REPO_USER }}"
             #            git config user.email "${{ secrets.SECRET_REPO_USER }}@users.noreply.github.com"
+            ls -la
             git add .
-            git diff-index --quiet HEAD || git commit -m "[no ci] Build satis library" && git push
+            git commit -m "[no ci] Build satis library"
+            git push
+            # git diff-index --quiet HEAD || git commit -m "[no ci] Build satis library" && git push
