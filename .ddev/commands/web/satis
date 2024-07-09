@@ -1,0 +1,6 @@
+#!/bin/bash
+## Description: Build satis
+## Usage: satis
+## Example: ddev satis
+
+php vendor/bin/satis build satis.json public
