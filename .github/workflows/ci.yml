@@ -31,9 +31,11 @@ jobs:
           php vendor/bin/satis build satis.json public
 
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SECRET_GITHUB_TOKEN }}
       - name: 'commit changes'
         run: |
-#            git config user.name "${{ secrets.SECRET_REPO_USER }}"
-#            git config user.email "${{ secrets.SECRET_REPO_USER }}@users.noreply.github.com"
+            #            git config user.name "${{ secrets.SECRET_REPO_USER }}"
+            #            git config user.email "${{ secrets.SECRET_REPO_USER }}@users.noreply.github.com"
             git add .
             git diff-index --quiet HEAD || git commit -m "[no ci] Build satis library" && git push
