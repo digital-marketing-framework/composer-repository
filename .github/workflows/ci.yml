@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       -
-        name: Checkout
+        name: 'Checkout code'
         uses: actions/checkout@v4
       -
         name: 'Install PHP'
@@ -20,14 +20,14 @@ jobs:
           coverage: none
           tools: 'composer:v2.4'
         env:
-          COMPOSER_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
+          COMPOSER_TOKEN: ${{ github.token }}
       -
         name: 'Install Composer dependencies'
         run: "composer install --no-progress\n"
       -
         name: 'Run command'
         run: |
-          php vendor/bin/satis build satis.json public/
+          php vendor/bin/satis build satis.json public
 
       - uses: actions/checkout@v4
       - name: 'commit changes'
