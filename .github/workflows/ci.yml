@@ -29,6 +29,12 @@ jobs:
         name: 'Run command'
         run: |
           php vendor/bin/satis build satis.json public
+      - name: Archive pages artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: |
+            public
 
   # Deploy job
   deploy:
