@@ -32,6 +32,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          mkdri .ssh
           echo '${{ secrets.SECRET_REPO_DEPLOY_KEY }}' > .ssh/id_rsa
           git config --global user.name "${{ secrets.SECRET_REPO_USER }}"
           git config --global user.email "${{ secrets.SECRET_REPO_USER }}@users.noreply.github.com"
