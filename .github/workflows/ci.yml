@@ -3,6 +3,8 @@
     branches:
       - main
       - feature/cleanup-actions
+  schedule:
+    - cron: "0 0 * * *" # Run rebuild every midnight
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
