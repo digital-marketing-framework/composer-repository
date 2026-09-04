@@ -28,7 +28,7 @@ jobs:
     steps:
       -
         name: 'Checkout code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       -
         name: 'Install PHP'
         uses: shivammathur/setup-php@v2
@@ -41,7 +41,7 @@ jobs:
           COMPOSER_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       -
         name: 'Install Composer dependencies'
         run: "composer install --no-progress\n"
@@ -50,7 +50,7 @@ jobs:
         run: |
           php vendor/bin/satis build satis.json public
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
